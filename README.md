@@ -8,8 +8,16 @@ The initial purpose is to track the harvesting of data for use in [Project 29](h
 
 We aim to harvest data from the sites on the Bioschemas live deploy page for which we have a sitemap. We will also include sites where we have a list of URLs. Full details of the datasets to be harvested and their progress can be found on the [project board](https://github.com/BioSchemas/bioschemas-data-harvesting/projects/1).
 
-Notes about datasets:
+We have loaded the harvested data into a GraphDB triplestore:
+- [SPARQL Endpoint](https://swel.macs.hw.ac.uk/data/repositories/bioschemas)
+- [Snorql Extended Interface](https://swel.macs.hw.ac.uk/bioschemas/)
+- [Data directory](https://swel.macs.hw.ac.uk/bioschemas-data/)
+
+Notes about datasets included in the collection:
 - DisProt: 2,044 pages harvested using the dynamic scraper (v0.4.0) on 20 October 2021
 - MobiDB: 2,083 pages harvested using the dynamic scraper (v0.4.0) on 27 October 2021
 - Paired Omics: 78 pages harvested using the dynamic scraper (v0.5.0) on 28 October 2021
 - MassBank: 76,253 pages harvested using the static scraper (v0.5.0) on 4 November 2021; 10,326 pages did not harvest due to errors in the JSON-LD. For loading into the triplestore, the nquad files were merged using the command `find . -name *.nq -exec cat {} \; > massbank.nq` as detailed [here](https://stackoverflow.com/questions/18695105/how-to-concatenate-huge-number-of-files).
+- Cosmic: 2,424 pages harvested using the static scraper (v0.5.2) on 4 November 2021
+- Nanocommons: 3 pages harvested using the static scraper (v0.5.2) on 4 November 2021
+- Alliance of Genomes: 12 pages harvested using scraper (v0.5.2) on 5 November 2021
