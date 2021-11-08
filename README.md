@@ -14,10 +14,23 @@ We have loaded the harvested data into a GraphDB triplestore:
 - [Data directory](https://swel.macs.hw.ac.uk/bioschemas-data/)
 
 Notes about datasets included in the collection:
-- DisProt: 2,044 pages harvested using the dynamic scraper (v0.4.0) on 20 October 2021
-- MobiDB: 2,083 pages harvested using the dynamic scraper (v0.4.0) on 27 October 2021
-- Paired Omics: 78 pages harvested using the dynamic scraper (v0.5.0) on 28 October 2021
-- MassBank: 76,253 pages harvested using the static scraper (v0.5.0) on 4 November 2021; 10,326 pages did not harvest due to errors in the JSON-LD. For loading into the triplestore, the nquad files were merged using the command `find . -name *.nq -exec cat {} \; > massbank.nq` as detailed [here](https://stackoverflow.com/questions/18695105/how-to-concatenate-huge-number-of-files).
-- Cosmic: 2,424 pages harvested using the static scraper (v0.5.2) on 4 November 2021
-- Nanocommons: 3 pages harvested using the static scraper (v0.5.2) on 4 November 2021
-- Alliance of Genomes: 12 pages harvested using scraper (v0.5.2) on 5 November 2021
+1. DisProt: 2,044 pages harvested using the dynamic scraper (v0.4.0) on 20 October 2021
+1. MobiDB: 2,083 pages harvested using the dynamic scraper (v0.4.0) on 27 October 2021
+1. Paired Omics: 78 pages harvested using the dynamic scraper (v0.5.0) on 28 October 2021
+1. BridgeDb: 2 pages harvested using the static scraper (v0.5.1) on 2 November 2021
+1. PCDDB: 1,402 pages harvested using the static scraper (v0.5.1) on 2 November 2021
+1. MassBank: 76,253 pages harvested using the static scraper (v0.5.0) on 4 November 2021; 10,326 pages did not harvest due to errors in the JSON-LD. For loading into the triplestore, the nquad files were merged using the command `find . -name *.nq -exec cat {} \; > massbank.nq` as detailed [here](https://stackoverflow.com/questions/18695105/how-to-concatenate-huge-number-of-files).
+1. Cosmic: 2,424 pages harvested using the static scraper (v0.5.2) on 4 November 2021
+1. Nanocommons: 3 pages harvested using the static scraper (v0.5.2) on 4 November 2021
+1. Alliance of Genomes: 12 pages harvested using scraper (v0.5.2) on 5 November 2021
+1. BioVersions: 3 pages harvested using the static scraper (v0.5.2) on 5 November 2021
+1. EGA: 11,834 pages harvested using scraper (v0.5.2) on 5 November 2021; 745 pages could not be harvested
+1. IFB: 87 pages harvested using scraper (v0.5.2) on 5 November 2021
+1. PDBe: 672 pages harvested using scraper (v0.5.2) on 5 November 2021
+1. Prosite: 5,859 pages harvested using scraper (v0.5.2) on 5 November 2021
+1. UniProt: 3 pages harvested using the static scraper (v0.5.2) on 5 November 2021
+1. FAIRsharing: 6,351 pages harvested using scraper (v0.5.2) on 6 November 2021
+1. COVID19 Portal: 20 pages harvested using the dynamic scraper (v0.5.2) on 7 November 2021
+1. GBIF: 68,167 pages harvested using the static scraper (v0.5.2) on 7 November 2021
+1. TeSS: 13,940 pages harvested using scraper (v0.5.2) on 7 November 2021
+1. Scholia: 5,345 pages harvested out of 660k supplied URLs using dynamic scraper (v0.5.2) on 8 November 2021; 1 page did not scrape
