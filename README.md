@@ -34,3 +34,4 @@ Notes about datasets included in the collection:
 1. GBIF: 68,167 pages harvested using the static scraper (v0.5.2) on 7 November 2021
 1. TeSS: 13,940 pages harvested using scraper (v0.5.2) on 7 November 2021
 1. Scholia: 5,345 pages harvested out of 660k supplied URLs using dynamic scraper (v0.5.2) on 8 November 2021; 1 page did not scrape
+1. Protein Ensembl (PED): 187 pages harvested using the dynamic scraper (v0.5.2) on 9 November 2021
