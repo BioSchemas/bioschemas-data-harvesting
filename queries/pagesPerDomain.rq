@@ -1,0 +1,12 @@
+# Pages per Domain
+## This query finds the number of pages per web domain
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+SELECT ?domain (COUNT(*) AS ?count) 
+WHERE { 
+	?s pav:retrievedFrom ?o
+    BIND (STRBEFORE(STRAFTER(STR(?o), "//"), "/") AS ?domain)
+} 
+GROUP BY ?domain
+ORDER BY DESC (?count)
