@@ -1,0 +1,19 @@
+# Instances per Bioschemas Type
+## This query finds the number of instances in each of the Bioschemas types
+
+SELECT ?Class (COUNT(DISTINCT ?s) AS ?instances) WHERE {
+    VALUES ?Class {<https://schema.org/MolecularEntity>
+                    <https://schema.org/ScholarlyArticle>
+                    <https://schema.org/Dataset>
+                    <https://bioschemas.org/Taxon>
+                    <https://schema.org/Taxon>
+                    <https://schema.org/Protein>
+                    <https://schema.org/Gene>
+                    <https://bioschemas.org/Gene>
+                    }
+    GRAPH ?g {
+        ?s a ?Class
+    }
+}
+GROUP BY ?Class
+ORDER BY DESC(?instances)
