@@ -33,9 +33,14 @@ Notes about datasets included in the collection:
 1. COVID19 Portal: 20 pages harvested using the dynamic scraper (v0.5.2) on 7 November 2021
 1. GBIF: 68,167 pages harvested using the static scraper (v0.5.2) on 7 November 2021
 1. TeSS: 13,940 pages harvested using scraper (v0.5.2) on 7 November 2021
-1. Scholia: 5,345 pages harvested out of 660k supplied URLs using dynamic scraper (v0.5.2) on 8 November 2021; 1 page did not scrape
-1. Protein Ensembl (PED): 187 pages harvested using the dynamic scraper (v0.5.2) on 9 November 2021
-1. Bgee: statically scraped (v0.5.2) on 9-10 November
-  - https://bgee.org/sitemap_main.xml 22 pages
-  - https://bgee.org/sitemap_gene1.xml 49,001 pages
-1. COVIDmine (no longer maintained): 49,959 pages scraped using the dynamic scraper (v0.5.2) on 8 November 2021
+1. Scholia: 
+    - 5,345 pages harvested out of 660k supplied URLs using dynamic scraper (v0.5.2) on 8 November 2021; 1 page did not scrape
+    - 68,974 pages harvested using dynamic scraper (v0.5.2) on 10 November 2021; 21 pages did not scrape
+3. Protein Ensembl (PED): 187 pages harvested using the dynamic scraper (v0.5.2) on 9 November 2021
+4. Bgee: statically scraped (v0.5.2) on 9-10 November
+    - https://bgee.org/sitemap_main.xml 22 pages
+    - https://bgee.org/sitemap_gene1.xml 49,001 pages
+5. COVIDmine (no longer maintained): 49,959 pages scraped using the dynamic scraper (v0.5.2) on 8 November 2021
+6. MetaNetX: statically scraped (v0.5.2) on 11 November 2021
+    - https://www.metanetx.org/sitemap_main.xml 12 pages
+    - https://www.metanetx.org/sitemap_chem1.xml 49,001 pages
