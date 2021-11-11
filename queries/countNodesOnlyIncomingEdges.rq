@@ -1,0 +1,7 @@
+# Count how many nodes only have incoming edges?
+
+SELECT (count(distinct ?o) as ?count) WHERE {
+  ?s ?p ?o
+  FILTER (! isLiteral(?o))
+  FILTER NOT EXISTS {?o ?p2 ?o2}
+} 
