@@ -1,0 +1,8 @@
+# How many outgoing links (edge IRIs)?
+
+SELECT ?s ?class (count(?p) as ?nb_out_edges) WHERE {
+  ?s rdf:type ?class .
+  ?s ?p ?o .
+}
+GROUP BY ?s ?class
+LIMIT 100

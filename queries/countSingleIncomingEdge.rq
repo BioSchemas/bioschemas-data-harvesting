@@ -1,0 +1,9 @@
+# How many only have a single incoming edge AND not having outgoing edges ?
+
+SELECT ?o (count(distinct ?p) as ?count) WHERE {
+  ?s ?p ?o
+  FILTER (! isLiteral(?o))
+}
+GROUP BY ?o
+HAVING(?count < 2)
+LIMIT 100
