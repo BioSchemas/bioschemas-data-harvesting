@@ -2,18 +2,84 @@
 ## This query finds the number of instances in each of the Bioschemas types
 
 SELECT ?Class (COUNT(DISTINCT ?s) AS ?instances) WHERE {
-    VALUES ?Class {<https://schema.org/MolecularEntity>
-                    <https://schema.org/ScholarlyArticle>
-                    <https://schema.org/Dataset>
-                    <https://bioschemas.org/Taxon>
-                    <https://schema.org/Taxon>
-                    <https://schema.org/Protein>
-                    <https://schema.org/Gene>
-                    <https://bioschemas.org/Gene>
-                    }
+    VALUES ?Class {
+      <https://bioschemas.org/BioChemEntity>
+      <https://schema.org/BioChemEntity>
+      <https://bioschemas.org/ChemicalSubstance>
+      <https://schema.org/ChemicalSubstance>
+      <https://bioschemas.org/SoftwareApplication>
+      <https://schema.org/SoftwareApplication>
+      <https://bioschemas.org/ComputationalWorkflow>
+      <https://schema.org/ComputationalWorkflow>
+      <https://schema.org/DataCatalog>
+      <https://schema.org/Dataset>
+      <https://bioschemas.org/FormalParameter>
+      <https://schema.org/FormalParameter>
+      <https://bioschemas.org/Gene>
+      <https://schema.org/Gene>
+      <https://bioschemas.org/MolecularEntity>
+      <https://schema.org/MolecularEntity>
+      <https://bioschemas.org/Protein>
+      <https://schema.org/Protein>
+      <https://bioschemas.org/Sample>
+      <https://schema.org/Sample>
+      <https://bioschemas.org/Taxon>
+      <https://schema.org/Taxon>
+      <https://bioschemas.org/BioSample>
+      <https://schema.org/BioSample>
+      <https://bioschemas.org/Course>
+      <https://schema.org/Course>
+      <https://bioschemas.org/CourseInstance>
+      <https://schema.org/CourseInstance>
+      <https://bioschemas.org/Disease>
+      <https://schema.org/Disease>
+      <https://bioschemas.org/DNA>
+      <https://schema.org/DNA>
+      <https://bioschemas.org/Event>
+      <https://schema.org/Event>
+      <https://bioschemas.org/Journal>
+      <https://schema.org/Journal>
+      <https://bioschemas.org/LabProtocol>
+      <https://schema.org/LabProtocol>
+      <https://bioschemas.org/Organization>
+      <https://schema.org/Organization>
+      <https://bioschemas.org/Person>
+      <https://schema.org/Person>
+      <https://bioschemas.org/Phenotype>
+      <https://schema.org/Phenotype>
+      <https://bioschemas.org/ProteinStructure>
+      <https://schema.org/ProteinStructure>
+      <https://bioschemas.org/PublicationIssue>
+      <https://schema.org/PublicationIssue>
+      <https://bioschemas.org/PublicationVolume>
+      <https://schema.org/PublicationVolume>
+      <https://bioschemas.org/RNA>
+      <https://schema.org/RNA>
+      <https://bioschemas.org/ScholarlyArticle>
+      <https://schema.org/ScholarlyArticle>
+      <https://bioschemas.org/SemanticAnnotation>
+      <https://schema.org/SemanticAnnotation>
+      <https://bioschemas.org/SequenceAnnotation>
+      <https://schema.org/SequenceAnnotation>
+      <https://bioschemas.org/SequenceRange>
+      <https://schema.org/SequenceRange>
+      <https://bioschemas.org/Study>
+      <https://schema.org/Study>
+      <https://bioschemas.org/TaxonName>
+      <https://schema.org/TaxonName>
+      <https://bioschemas.org/LearningResource>
+      <https://schema.org/LearningResource>
+      <https://bioschemas.org/Beacon>
+      <https://schema.org/Beacon>
+      <https://bioschemas.org/DataRecord>
+      <https://schema.org/DataRecord>
+      <https://bioschemas.org/ProteinAnnotation>
+      <https://schema.org/ProteinAnnotation>
+    }
     GRAPH ?g {
         ?s a ?Class
     }
 }
 GROUP BY ?Class
+HAVING (?instances > 0)
 ORDER BY DESC(?instances)
