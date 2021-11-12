@@ -5,4 +5,4 @@ SELECT ?s ?class (count(?p) as ?nb_out_edges) WHERE {
   ?s ?p ?o .
 }
 GROUP BY ?s ?class
-LIMIT 100
+LIMIT 1000
