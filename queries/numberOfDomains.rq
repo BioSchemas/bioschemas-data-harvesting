@@ -1,0 +1,10 @@
+# Number of domains
+## This query finds the number of distinct web domains that data has been harvested from
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+SELECT (COUNT(distinct ?domain) AS ?count)
+WHERE {
+	?s pav:retrievedFrom ?o
+    BIND (STRBEFORE(STRAFTER(STR(?o), "//"), "/") AS ?domain)
+}
