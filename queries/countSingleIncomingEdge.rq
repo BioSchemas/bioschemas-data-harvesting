@@ -6,4 +6,4 @@ SELECT ?o (count(distinct ?p) as ?count) WHERE {
 }
 GROUP BY ?o
 HAVING(?count < 2)
-LIMIT 100
+LIMIT 1000
