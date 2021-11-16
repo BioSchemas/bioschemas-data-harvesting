@@ -12,6 +12,7 @@ We have loaded the harvested data into a GraphDB triplestore:
 - [SPARQL Endpoint](https://swel.macs.hw.ac.uk/data/repositories/bioschemas)
 - [Snorql Extended Interface](https://swel.macs.hw.ac.uk/bioschemas/)
 - [Data directory](https://swel.macs.hw.ac.uk/bioschemas-data/)
+- Executable query notebook [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/BioSchemas/bioschemas-data-harvesting/HEAD?labpath=AnalysisQueries.ipynb)
 
 Notes about datasets included in the collection:
 1. DisProt: 2,044 pages harvested using the dynamic scraper (v0.4.0) on 20 October 2021
