@@ -1,0 +1,3 @@
+clipboard==0.0.4
+htmltabletomd==1.0.0
+SPARQLWrapper==1.8.5
