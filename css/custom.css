@@ -1,0 +1,41 @@
+textarea{
+    background: url(http://i.imgur.com/2cOaJ.png) !important;
+    background-attachment: local !important;
+    background-repeat: no-repeat !important;
+    padding-left: 35px !important;
+    padding-top: 10px !important;
+    border-color:#ccc !important;
+    overflo-x:auto !important;
+    overflow-y:auto !important;
+    border-bottom:1px solid #ccc !important;
+    margin-top:1% !important;
+    margin-bottom:1% !important;
+    border-top:1px solid #ccc !important;
+}
+
+.alert {
+  padding: 10px;
+  background-color: #fdd;
+  color: black;
+}
+.alert strong {
+    weight: 600 !important;
+}
+
+.table {
+      width:100%;
+      border-collapse: collapse;  
+    }
+    .table tr:nth-child(even) {background-color: #f2f2f2;}
+    .table tr:hover {background-color: #ccc;}
+    .table th {
+        color:white;
+        background-color:#43BFC7;
+      position: sticky;
+      top: 0px;
+    }
+.full-width {
+      margin-left: calc(-30vw / 2 + 50% / 2);
+      margin-right: calc(-30vw / 2 + 50% / 2);
+      height:40vh;overflow-x: auto;overflow-y: auto;
+}
