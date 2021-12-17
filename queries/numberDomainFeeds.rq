@@ -1,0 +1,11 @@
+# Number of Domain Feeds
+## This query finds the number of domains imported through a DataFeed
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+SELECT (COUNT(*) AS ?count)
+WHERE {
+	?s pav:retrievedFrom ?o ;
+		a schema:DataFeed .
+	BIND (REPLACE(STRAFTER(STR(?o), "//"), "/.*", "") AS ?domain)
+}
