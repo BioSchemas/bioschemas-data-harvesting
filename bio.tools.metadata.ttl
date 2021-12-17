@@ -1,0 +1,4 @@
+
+<http://bio.tools/comp-tools-0.6-draft/> <http://purl.org/pav/retrievedFrom> <https://bio.tools> .
+<http://bio.tools/comp-tools-0.6-draft/> <http://purl.org/pav/retrievedOn> "2021-11-09T09:28:45"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://bio.tools/comp-tools-0.6-draft/> a <https://schema.org/DataFeed> .
