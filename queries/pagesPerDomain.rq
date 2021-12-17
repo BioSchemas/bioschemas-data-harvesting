@@ -3,10 +3,10 @@
 
 PREFIX schema: <https://schema.org/>
 PREFIX pav: <http://purl.org/pav/>
-SELECT ?domain (COUNT(*) AS ?count) 
-WHERE { 
+SELECT ?domain (COUNT(*) AS ?count)
+WHERE {
 	?s pav:retrievedFrom ?o
-    BIND (STRBEFORE(STRAFTER(STR(?o), "//"), "/") AS ?domain)
-} 
+    BIND (REPLACE(STRAFTER(STR(?o), "//"), "/.*", "") AS ?domain)
+}
 GROUP BY ?domain
 ORDER BY DESC (?count)

@@ -6,5 +6,5 @@ PREFIX pav: <http://purl.org/pav/>
 SELECT (COUNT(distinct ?domain) AS ?count)
 WHERE {
 	?s pav:retrievedFrom ?o
-    BIND (STRBEFORE(STRAFTER(STR(?o), "//"), "/") AS ?domain)
+    BIND (REPLACE(STRAFTER(STR(?o), "//"), "/.*", "") AS ?domain)
 }
