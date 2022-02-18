@@ -1,5 +1,7 @@
-# Number of Domain Feeds
-## This query finds the number of domains imported through a DataFeed
+#+ summary: Number of Domain Feeds
+#+ description: This query finds the number of domains imported through a DataFeed
+#+ tags:
+#+   - Stats
 
 PREFIX schema: <https://schema.org/>
 PREFIX pav: <http://purl.org/pav/>

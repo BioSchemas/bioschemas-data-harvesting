@@ -1,5 +1,7 @@
-# Count of Types per Domain
-## This query finds the number of instances of types per web domain
+#+ summary: Count of Types per Domain
+#+ description: This query finds the number of instances of types per web domain
+#+ tags:
+#+   - Stats
 
 PREFIX schema: <https://schema.org/>
 PREFIX pav: <http://purl.org/pav/>

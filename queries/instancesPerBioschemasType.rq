@@ -1,5 +1,8 @@
-# Instances per Bioschemas Type
-## This query finds the number of instances in each of the Bioschemas types
+#+ summary: Instances per Bioschemas Type
+#+ description: This query finds the number of instances in each of the Bioschemas types
+#+ tags:
+#+   - Stats
+
 
 SELECT ?Class (COUNT(DISTINCT ?s) AS ?instances) WHERE {
     VALUES ?Class {
