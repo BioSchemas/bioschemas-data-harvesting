@@ -11,6 +11,7 @@ We aim to harvest data from the sites on the Bioschemas live deploy page for whi
 We have loaded the harvested data into a GraphDB triplestore:
 - [SPARQL Endpoint](https://swel.macs.hw.ac.uk/data/repositories/bioschemas)
 - [grlc REST API](https://grlc.io/api-git/BioSchemas/bioschemas-data-harvesting/subdir/queries/)
+- [Alternative grlc REST API](http://grlc.io/api-url?specUrl=https://raw.githubusercontent.com/BioSchemas/bioschemas-data-harvesting/main/bioschemas-query-api.yml#/) _Need to change the endpoint to `https://swel.macs.hw.ac.uk/data/repositories/bioschemas`_
 - [Snorql Extended Interface](https://swel.macs.hw.ac.uk/bioschemas/)
 - [Data directory](https://swel.macs.hw.ac.uk/bioschemas-data/)
 - Executable query notebook [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/BioSchemas/bioschemas-data-harvesting/HEAD?labpath=AnalysisQueries.ipynb)
@@ -35,7 +36,7 @@ Notes about datasets included in the collection:
 1. COVID19 Portal: 20 pages harvested using the dynamic scraper (v0.5.2) on 7 November 2021
 1. GBIF: 68,167 pages harvested using the static scraper (v0.5.2) on 7 November 2021
 1. TeSS: 13,940 pages harvested using scraper (v0.5.2) on 7 November 2021
-1. Scholia: 
+1. Scholia:
     - 5,345 pages harvested out of 660k supplied URLs using dynamic scraper (v0.5.2) on 8 November 2021; 1 page did not scrape
     - 68,974 pages harvested using dynamic scraper (v0.5.2) on 10 November 2021; 21 pages did not scrape
 3. Protein Ensembl (PED): 187 pages harvested using the dynamic scraper (v0.5.2) on 9 November 2021

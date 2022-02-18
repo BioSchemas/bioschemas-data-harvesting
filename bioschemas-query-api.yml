@@ -1,5 +1,5 @@
 title: Bioschemas Knowledge Graph
-description: Queries for accessing the data harvested by Bioschemas
+description: Queries for accessing the data harvested by Bioschemas. Set the endpoint to https://swel.macs.hw.ac.uk/data/repositories/bioschemas
 contact:
   name: Alasdair Gray
   url: https://alasdairgray.github.io/
