@@ -1,7 +1,7 @@
 #+ summary: Count how many nodes only have incoming edges?
 #+ pagination: 100
 #+ tags:
-#+   - Analysis
+#+   - Deeper Analysis
 
 SELECT (count(distinct ?o) as ?count) WHERE {
   ?s ?p ?o

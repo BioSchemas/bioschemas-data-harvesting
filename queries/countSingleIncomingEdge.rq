@@ -1,7 +1,7 @@
 #+ summary: How many only have a single incoming edge AND not having outgoing edges ?
 #+ pagination: 1000
 #+ tags:
-#+   - Analysis
+#+   - Deeper Analysis
 
 SELECT ?o (count(distinct ?p) as ?count) WHERE {
   ?s ?p ?o

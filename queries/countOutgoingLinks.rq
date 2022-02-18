@@ -1,7 +1,7 @@
 #+ summary: How many outgoing links per class (edge IRIs)?
 #+ pagination: 1000
 #+ tags:
-#+   - Analysis
+#+   - Deeper Analysis
 
 SELECT ?s ?class (count(?p) as ?nb_out_edges) WHERE {
   ?s rdf:type ?class .
