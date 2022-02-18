@@ -10,6 +10,7 @@ We aim to harvest data from the sites on the Bioschemas live deploy page for whi
 
 We have loaded the harvested data into a GraphDB triplestore:
 - [SPARQL Endpoint](https://swel.macs.hw.ac.uk/data/repositories/bioschemas)
+- [grlc REST API](https://grlc.io/api-git/BioSchemas/bioschemas-data-harvesting/subdir/queries/)
 - [Snorql Extended Interface](https://swel.macs.hw.ac.uk/bioschemas/)
 - [Data directory](https://swel.macs.hw.ac.uk/bioschemas-data/)
 - Executable query notebook [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/BioSchemas/bioschemas-data-harvesting/HEAD?labpath=AnalysisQueries.ipynb)
