@@ -1,5 +1,5 @@
-# Harvested Pages per Domain
-## This query finds the number of pages per web domain
+#+ summary: Harvested Pages per Domain
+#+ description: This query finds the number of pages per web domain that was harvested
 
 PREFIX schema: <https://schema.org/>
 PREFIX pav: <http://purl.org/pav/>
