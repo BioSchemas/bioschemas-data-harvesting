@@ -8,3 +8,6 @@ sparql_endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
 queries:
   - https://raw.githubusercontent.com/AlasdairGray/HCLS-Stats-Queries/master/class-count.rq
   - https://raw.githubusercontent.com/BioSchemas/bioschemas-data-harvesting/main/queries/numberDomainFeeds.rq
+  - https://raw.githubusercontent.com/BioSchemas/bioschemas-data-harvesting/main/queries/protein-count.rq
+  - https://raw.githubusercontent.com/BioSchemas/bioschemas-data-harvesting/main/queries/protein-search.rq
+  - https://raw.githubusercontent.com/BioSchemas/bioschemas-data-harvesting/main/queries/protein-information.rq
