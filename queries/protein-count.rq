@@ -1,0 +1,18 @@
+#+ summary: Count the number of proteins
+#+ description: Count the number of instances that are typed as either a schema:Protein or Bioschemas:Protein
+#+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
+#+ tags:
+#+   - Protein
+
+SELECT ?Class (COUNT(DISTINCT ?s) AS ?instances) WHERE {
+    VALUES ?Class {<https://schema.org/Protein>
+                  <https://bioschemas.org/Protein>
+        			    <http://schema.org/Protein>
+                  <http://bioschemas.org/Protein>
+                    }
+    GRAPH ?g {
+        ?s a ?Class
+    }
+}
+GROUP BY ?Class
+ORDER BY DESC(?instances)
