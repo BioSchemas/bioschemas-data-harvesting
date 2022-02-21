@@ -1,5 +1,5 @@
 #+ summary: Query to retrieve protein data
-#+ description: Retrieve all properties that are mentioned in the Protein Profile. Proteins are grouped by their IRI, with multiple values possible. Defensive query: assumes that data does not conform to Protein profile
+#+ description: Retrieve all properties that are mentioned in the Protein Profile. Proteins are grouped by their IRI, with multiple values possible. Defensive query assumes that data does not conform to Protein profile
 #+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
 #+ defaults:
 #+   - protein: https://disprot.org/DP00005
