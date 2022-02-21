@@ -18,6 +18,6 @@ WHERE {
     GRAPH ?g {
         ?s a ?Class ;
           schema:name ?name
-        FILTER REGEX(?name, ?search, "i")
+        FILTER REGEX(?name, ?_search, "i")
     }
 }
