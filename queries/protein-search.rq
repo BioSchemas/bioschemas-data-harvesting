@@ -1,0 +1,23 @@
+#+ summary: Search by protein name
+#+ description: Search for proteins containing the supplied string in their name. The default value searches for the string 'Protein'.
+#+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
+#+ defaults:
+#+   - search: "Protein"
+#+ tags:
+#+   - Protein
+
+PREFIX schema: <https://schema.org/>
+
+SELECT ?s ?name
+WHERE {
+    VALUES ?Class {<https://schema.org/Protein>
+                  <https://bioschemas.org/Protein>
+        			    <http://schema.org/Protein>
+                  <http://bioschemas.org/Protein>
+                    }
+    GRAPH ?g {
+        ?s a ?Class ;
+          schema:name ?name
+        FILTER REGEX(?name, ?search, "i")
+    }
+}
