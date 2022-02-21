@@ -1,6 +1,8 @@
 #+ summary: Query to retrieve protein data
 #+ description: Retrieve all properties that are mentioned in the Protein Profile. Proteins are grouped by their IRI, with multiple values possible. Defensive query: assumes that data does not conform to Protein profile
 #+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
+#+ defaults:
+#+   - protein: https://disprot.org/DP00005
 #+ tags:
 #+   - Protein
 
@@ -8,7 +10,7 @@ PREFIX schema: <https://schema.org/>
 PREFIX pav: <http://purl.org/pav/>
 PREFIX void: <http://rdfs.org/ns/void#>
 
-SELECT  ?s
+SELECT  ?_protein_iri
     (GROUP_CONCAT(DISTINCT ?identifier;SEPARATOR=',<br/>') AS ?identifiers)
     (GROUP_CONCAT(DISTINCT ?name;SEPARATOR=',<br/>') AS ?names)
     (GROUP_CONCAT(DISTINCT ?associatedDisease;SEPARATOR=',<br/>') AS ?diseases)
@@ -37,30 +39,30 @@ WHERE {
                     <http://bioschemas.org/Protein>}
     GRAPH ?g {
 # Bioschemas Minimal Properties
-        ?s a ?class .
-        OPTIONAL {?s schema:identifier ?identifier }
-        OPTIONAL {?s schema:name ?name }
+        ?_protein_iri a ?class .
+        OPTIONAL {?_protein_iri schema:identifier ?identifier }
+        OPTIONAL {?_protein_iri schema:name ?name }
 ## Bioschemas Recommended properties
-        OPTIONAL {?s schema:associatedDisease ?associatedDisease}
-        OPTIONAL {?s schema:description ?description}
-        OPTIONAL {?s schema:hasSequenceAnnotation ?annotation }
-        OPTIONAL {?s schema:includedInDataset ?dataset }
-        OPTIONAL {?s schema:isEncodedByBioChemEntity ?encodedBy}
-        OPTIONAL {?s schema:taxonomicRange ?taxonomicRange }
-        OPTIONAL {?s schema:url ?url}
+        OPTIONAL {?_protein_iri schema:associatedDisease ?associatedDisease}
+        OPTIONAL {?_protein_iri schema:description ?description}
+        OPTIONAL {?_protein_iri schema:hasSequenceAnnotation ?annotation }
+        OPTIONAL {?_protein_iri schema:includedInDataset ?dataset }
+        OPTIONAL {?_protein_iri schema:isEncodedByBioChemEntity ?encodedBy}
+        OPTIONAL {?_protein_iri schema:taxonomicRange ?taxonomicRange }
+        OPTIONAL {?_protein_iri schema:url ?url}
 ## Bioschemas Optional properties
-        OPTIONAL {?s schema:alternateName ?alternateName}
-        OPTIONAL {?s schema:bioChemInteraction ?bioChemInteraction}
-        OPTIONAL {?s schema:bioChemSimilarity ?bioChemSimilarity}
-        OPTIONAL {?s schema:hasBioChemEntityPart ?bioChemEntity}
-        OPTIONAL {?s schema:hasBioPolymerSequence ?sequence}
-        OPTIONAL {?s schema:hasMolecularFunction ?molFunction}
-        OPTIONAL {?s schema:hasRepresentation ?representation }
-        OPTIONAL {?s schema:image ?image}
-        OPTIONAL {?s schema:isInvolvedInBiologicalProcess ?process}
-        OPTIONAL {?s schema:isLocatedInSubcellularLocation ?cellularLocation}
-        OPTIONAL {?s schema:isPartOfBioChemEntity ?parentEntity}
-        OPTIONAL {?s schema:sameAs ?sameAs }
+        OPTIONAL {?_protein_iri schema:alternateName ?alternateName}
+        OPTIONAL {?_protein_iri schema:bioChemInteraction ?bioChemInteraction}
+        OPTIONAL {?_protein_iri schema:bioChemSimilarity ?bioChemSimilarity}
+        OPTIONAL {?_protein_iri schema:hasBioChemEntityPart ?bioChemEntity}
+        OPTIONAL {?_protein_iri schema:hasBioPolymerSequence ?sequence}
+        OPTIONAL {?_protein_iri schema:hasMolecularFunction ?molFunction}
+        OPTIONAL {?_protein_iri schema:hasRepresentation ?representation }
+        OPTIONAL {?_protein_iri schema:image ?image}
+        OPTIONAL {?_protein_iri schema:isInvolvedInBiologicalProcess ?process}
+        OPTIONAL {?_protein_iri schema:isLocatedInSubcellularLocation ?cellularLocation}
+        OPTIONAL {?_protein_iri schema:isPartOfBioChemEntity ?parentEntity}
+        OPTIONAL {?_protein_iri schema:sameAs ?sameAs }
     }
 }
-GROUP BY ?s
+GROUP BY ?_protein_iri
