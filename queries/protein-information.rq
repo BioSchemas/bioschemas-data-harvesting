@@ -1,0 +1,66 @@
+#+ summary: Query to retrieve protein data
+#+ description: Retrieve all properties that are mentioned in the Protein Profile. Proteins are grouped by their IRI, with multiple values possible. Defensive query: assumes that data does not conform to Protein profile
+#+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
+#+ tags:
+#+   - Protein
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT  ?s
+    (GROUP_CONCAT(DISTINCT ?identifier;SEPARATOR=',<br/>') AS ?identifiers)
+    (GROUP_CONCAT(DISTINCT ?name;SEPARATOR=',<br/>') AS ?names)
+    (GROUP_CONCAT(DISTINCT ?associatedDisease;SEPARATOR=',<br/>') AS ?diseases)
+    (GROUP_CONCAT(DISTINCT ?description;SEPARATOR=',<br/>') AS ?descriptions)
+    (GROUP_CONCAT(DISTINCT ?annotation;SEPARATOR=',<br/>') AS ?annotations)
+    (GROUP_CONCAT(DISTINCT ?encodedBy;SEPARATOR=',<br/>') AS ?genes)
+    (GROUP_CONCAT(DISTINCT ?taxonomicRange;SEPARATOR=',<br/>') AS ?taxons)
+    (GROUP_CONCAT(DISTINCT ?url;SEPARATOR=',<br/>') AS ?urls)
+    (GROUP_CONCAT(DISTINCT ?alternateName;SEPARATOR=',<br/>') AS ?altNames)
+    (GROUP_CONCAT(DISTINCT ?bioChemInteraction;SEPARATOR=',<br/>') AS ?interactions)
+    (GROUP_CONCAT(DISTINCT ?bioChemSimilarity;SEPARATOR=',<br/>') AS ?similities)
+    (GROUP_CONCAT(DISTINCT ?bioChemEntity;SEPARATOR=',<br/>') AS ?entities)
+    (GROUP_CONCAT(DISTINCT ?sequence;SEPARATOR=',<br/>') AS ?sequences)
+    (GROUP_CONCAT(DISTINCT ?molFunction;SEPARATOR=',<br/>') AS ?functions)
+    (GROUP_CONCAT(DISTINCT ?representation;SEPARATOR=',<br/>') AS ?representations)
+    (GROUP_CONCAT(DISTINCT ?image;SEPARATOR=',<br/>') AS ?images)
+    (GROUP_CONCAT(DISTINCT ?process;SEPARATOR=',<br/>') AS ?processes)
+    (GROUP_CONCAT(DISTINCT ?cellularLocation;SEPARATOR=',<br/>') AS ?locations)
+    (GROUP_CONCAT(DISTINCT ?parentEntity;SEPARATOR=',<br/>') AS ?parents)
+    (GROUP_CONCAT(DISTINCT ?sameAs;SEPARATOR=',<br/>') AS ?equivalences)
+    (GROUP_CONCAT(DISTINCT ?dataset;SEPARATOR=',<br/>') AS ?datasets)
+WHERE {
+    VALUES ?class {<https://schema.org/Protein>
+                    <https://bioschemas.org/Protein>
+                    <http://schema.org/Protein>
+                    <http://bioschemas.org/Protein>}
+    GRAPH ?g {
+# Bioschemas Minimal Properties
+        ?s a ?class .
+        OPTIONAL {?s schema:identifier ?identifier }
+        OPTIONAL {?s schema:name ?name }
+## Bioschemas Recommended properties
+        OPTIONAL {?s schema:associatedDisease ?associatedDisease}
+        OPTIONAL {?s schema:description ?description}
+        OPTIONAL {?s schema:hasSequenceAnnotation ?annotation }
+        OPTIONAL {?s schema:includedInDataset ?dataset }
+        OPTIONAL {?s schema:isEncodedByBioChemEntity ?encodedBy}
+        OPTIONAL {?s schema:taxonomicRange ?taxonomicRange }
+        OPTIONAL {?s schema:url ?url}
+## Bioschemas Optional properties
+        OPTIONAL {?s schema:alternateName ?alternateName}
+        OPTIONAL {?s schema:bioChemInteraction ?bioChemInteraction}
+        OPTIONAL {?s schema:bioChemSimilarity ?bioChemSimilarity}
+        OPTIONAL {?s schema:hasBioChemEntityPart ?bioChemEntity}
+        OPTIONAL {?s schema:hasBioPolymerSequence ?sequence}
+        OPTIONAL {?s schema:hasMolecularFunction ?molFunction}
+        OPTIONAL {?s schema:hasRepresentation ?representation }
+        OPTIONAL {?s schema:image ?image}
+        OPTIONAL {?s schema:isInvolvedInBiologicalProcess ?process}
+        OPTIONAL {?s schema:isLocatedInSubcellularLocation ?cellularLocation}
+        OPTIONAL {?s schema:isPartOfBioChemEntity ?parentEntity}
+        OPTIONAL {?s schema:sameAs ?sameAs }
+    }
+}
+GROUP BY ?s
