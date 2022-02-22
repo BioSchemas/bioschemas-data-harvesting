@@ -1,0 +1,18 @@
+#+ summary: Count the number of molecular entities
+#+ description: Count the number of instances that are typed as either a schema:MolecularEntity or Bioschemas:MolecularEntity
+#+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
+#+ tags:
+#+   - MolecularEntity
+
+SELECT ?Class (COUNT(DISTINCT ?s) AS ?instances) WHERE {
+    VALUES ?Class {<https://schema.org/MolecularEntity>
+                  <https://bioschemas.org/MolecularEntity>
+        			    <http://schema.org/MolecularEntity>
+                  <http://bioschemas.org/MolecularEntity>
+                    }
+    GRAPH ?g {
+        ?s a ?Class
+    }
+}
+GROUP BY ?Class
+ORDER BY DESC(?instances)
