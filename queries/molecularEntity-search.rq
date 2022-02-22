@@ -2,7 +2,7 @@
 #+ description: The example searches for the InChIKey 'SWQJXJOGLNCZEY-UHFFFAOYSA-N'.
 #+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
 #+ defaults:
-#+   - InChIKey: "SWQJXJOGLNCZEY-UHFFFAOYSA-N"
+#+   - InChIKey: SWQJXJOGLNCZEY-UHFFFAOYSA-N
 #+ tags:
 #+   - MolecularEntity
 
