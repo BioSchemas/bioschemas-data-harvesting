@@ -12,4 +12,5 @@ queries:
   - https://raw.githubusercontent.com/BioSchemas/bioschemas-data-harvesting/main/queries/protein-search.rq
   - https://raw.githubusercontent.com/BioSchemas/bioschemas-data-harvesting/main/queries/protein-information.rq
   - https://raw.githubusercontent.com/egonw/bioschemas-data-harvesting/extension/chemistry/queries/molecularEntity-count.rq
+  - https://raw.githubusercontent.com/egonw/bioschemas-data-harvesting/extension/chemistry/queries/molecularEntity-search.rq
   - https://raw.githubusercontent.com/egonw/bioschemas-data-harvesting/extension/chemistry/queries/chemicalSubstance-count.rq
