@@ -8,7 +8,7 @@
 
 PREFIX schema: <https://schema.org/>
 
-SELECT ?s ?name ?url
+SELECT ?s ?name
 WHERE {
     VALUES ?Class {
       <https://schema.org/MolecularEntity>
@@ -19,7 +19,6 @@ WHERE {
     GRAPH ?g {
         ?s a ?Class ;
           schema:name ?name ;
-          schema:url ?url ;
           schema:inChIKey ?_InChIKey .
     }
 }
