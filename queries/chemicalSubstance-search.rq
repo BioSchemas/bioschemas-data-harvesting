@@ -1,0 +1,23 @@
+#+ summary: Search by substance name
+#+ description: Search for chemical proteinss containing the supplied string in their name. The default value searches for the string 'JRCNM01005a'.
+#+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
+#+ defaults:
+#+   - search: "JRCNM01005a"
+#+ tags:
+#+   - ChemicalSubstance
+
+PREFIX schema: <https://schema.org/>
+
+SELECT ?s ?name
+WHERE {
+    VALUES ?Class {<https://schema.org/ChemicalSubstance>
+                  <https://bioschemas.org/ChemicalSubstance>
+        			    <http://schema.org/ChemicalSubstance>
+                  <http://bioschemas.org/ChemicalSubstance>
+                    }
+    GRAPH ?g {
+        ?s a ?Class ;
+          schema:name ?name
+        FILTER REGEX(?name, ?_search, "i")
+    }
+}
