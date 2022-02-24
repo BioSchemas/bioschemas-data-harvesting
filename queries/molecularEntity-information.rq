@@ -14,7 +14,12 @@ SELECT
     (GROUP_CONCAT(DISTINCT ?identifier;SEPARATOR=',') AS ?identifiers)
     (GROUP_CONCAT(DISTINCT ?name;SEPARATOR=',') AS ?names)
     (GROUP_CONCAT(DISTINCT ?url;SEPARATOR=',') AS ?urls)
-    ?molecularFormula ?iupacName ?inChI ?inChIKey ?molecularWeight ?monoisotopicMolecularWeight
+    (GROUP_CONCAT(DISTINCT ?molecularFormula;SEPARATOR=',') AS ?molecularFormulas)
+    (GROUP_CONCAT(DISTINCT ?iupacName;SEPARATOR=',') AS ?iupacNames)
+    (GROUP_CONCAT(DISTINCT ?inChI;SEPARATOR=',') AS ?inChIs)
+    (GROUP_CONCAT(DISTINCT ?inChIKey;SEPARATOR=',') AS ?inChIKeys)
+    (GROUP_CONCAT(DISTINCT ?molecularWeight;SEPARATOR=',') AS ?molecularWeights)
+    (GROUP_CONCAT(DISTINCT ?monoisotopicMolecularWeight;SEPARATOR=',') AS ?monoisotopicMolecularWeights)
     (GROUP_CONCAT(DISTINCT ?smiles;SEPARATOR=',') AS ?smilesies)
     (GROUP_CONCAT(DISTINCT ?alternateName;SEPARATOR=',') AS ?altNames)
     (GROUP_CONCAT(DISTINCT ?associatedDisease;SEPARATOR=',') AS ?diseases)
