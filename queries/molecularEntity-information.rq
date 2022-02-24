@@ -2,7 +2,7 @@
 #+ description: Retrieve all properties that are mentioned in the MolecularEntity Profile.
 #+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
 #+ defaults:
-#+   - molecularEntity: https://nanocommons.github.io/specifications/jrc/index.html-5
+#+   - molecularEntity: https://scholia.toolforge.org/chemical/Q560
 #+ tags:
 #+   - MolecularEntity
 
