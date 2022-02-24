@@ -1,0 +1,51 @@
+#+ summary: Query to retrieve chemical substance data
+#+ description: Retrieve all properties that are mentioned in the ChemicalSubstance Profile.
+#+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
+#+ defaults:
+#+   - chemicalSubstance: https://nanocommons.github.io/specifications/jrc/index.html-5
+#+ tags:
+#+   - ChemicalSubstance
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT
+    (GROUP_CONCAT(DISTINCT ?identifier;SEPARATOR=',') AS ?identifiers)
+    (GROUP_CONCAT(DISTINCT ?name;SEPARATOR=',') AS ?names)
+    (GROUP_CONCAT(DISTINCT ?url;SEPARATOR=',') AS ?urls)
+    (GROUP_CONCAT(DISTINCT ?chemicalComposition;SEPARATOR=',') AS ?chemicalCompositions)
+    (GROUP_CONCAT(DISTINCT ?bioChemEntity;SEPARATOR=',') AS ?entities)
+    (GROUP_CONCAT(DISTINCT ?alternateName;SEPARATOR=',') AS ?altNames)
+    (GROUP_CONCAT(DISTINCT ?bioChemInteraction;SEPARATOR=',') AS ?interactions)
+    (GROUP_CONCAT(DISTINCT ?bioChemSimilarity;SEPARATOR=',') AS ?similities)
+    (GROUP_CONCAT(DISTINCT ?biologicalRole;SEPARATOR=',') AS ?biologicalRoles)
+    (GROUP_CONCAT(DISTINCT ?chemicalRole;SEPARATOR=',') AS ?chemicalRoles)
+    (GROUP_CONCAT(DISTINCT ?description;SEPARATOR=',') AS ?descriptions)
+    (GROUP_CONCAT(DISTINCT ?image;SEPARATOR=',') AS ?images)
+    (GROUP_CONCAT(DISTINCT ?sameAs;SEPARATOR=',') AS ?equivalences)
+WHERE {
+    VALUES ?class {<https://schema.org/ChemicalSubstance>
+                    <https://bioschemas.org/ChemicalSubstance>
+                    <http://schema.org/ChemicalSubstance>
+                    <http://bioschemas.org/ChemicalSubstance>}
+    GRAPH ?g {
+# Bioschemas Minimal Properties
+        ?_chemicalSubstance_iri a ?class .
+        OPTIONAL {?_chemicalSubstance_iri schema:identifier ?identifier }
+        OPTIONAL {?_chemicalSubstance_iri schema:name ?name }
+        OPTIONAL {?_chemicalSubstance_iri schema:url ?url}
+## Bioschemas Recommended properties
+        OPTIONAL {?_chemicalSubstance_iri schema:chemicalComposition ?chemicalComposition}
+        OPTIONAL {?_chemicalSubstance_iri schema:hasBioChemEntityPart ?bioChemEntity}
+## Bioschemas Optional properties
+        OPTIONAL {?_chemicalSubstance_iri schema:alternateName ?alternateName}
+        OPTIONAL {?_chemicalSubstance_iri schema:bioChemInteraction ?bioChemInteraction}
+        OPTIONAL {?_chemicalSubstance_iri schema:bioChemSimilarity ?bioChemSimilarity}
+        OPTIONAL {?_chemicalSubstance_iri schema:biologicalRole ?biologicalRole}
+        OPTIONAL {?_chemicalSubstance_iri schema:chemicalRole ?chemicalRole}
+        OPTIONAL {?_chemicalSubstance_iri schema:description ?description}
+        OPTIONAL {?_chemicalSubstance_iri schema:image ?image}
+        OPTIONAL {?_chemicalSubstance_iri schema:sameAs ?sameAs }
+    }
+}
