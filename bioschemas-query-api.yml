@@ -3,6 +3,9 @@ description: Queries for accessing the data harvested by Bioschemas. Set the end
 contact:
   name: Alasdair Gray
   url: https://alasdairgray.github.io/
+contributor:
+  name: Egon Willighagen
+  url: https://orcid.org/0000-0001-7542-0286
 licence: https://creativecommons.org/licenses/by/4.0/
 sparql_endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
 queries:
