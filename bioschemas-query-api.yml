@@ -17,7 +17,7 @@ queries:
   - https://raw.githubusercontent.com/egonw/bioschemas-data-harvesting/extension/chemistry/queries/molecularEntity-count.rq
   - https://raw.githubusercontent.com/egonw/bioschemas-data-harvesting/extension/chemistry/queries/molecularEntity-information.rq
   - https://raw.githubusercontent.com/egonw/bioschemas-data-harvesting/extension/chemistry/queries/molecularEntity-search.rq
-  - https://raw.githubusercontent.com/egonw/bioschemas-data-harvesting/extension/chemistry/queries/molecularEntity-inchi-key-search.rq
+  - https://raw.githubusercontent.com/egonw/bioschemas-data-harvesting/extension/chemistry/queries/molecularEntity-search-inchi-key.rq
   - https://raw.githubusercontent.com/egonw/bioschemas-data-harvesting/extension/chemistry/queries/chemicalSubstance-count.rq
   - https://raw.githubusercontent.com/egonw/bioschemas-data-harvesting/extension/chemistry/queries/chemicalSubstance-information.rq
   - https://raw.githubusercontent.com/egonw/bioschemas-data-harvesting/extension/chemistry/queries/chemicalSubstance-search.rq
