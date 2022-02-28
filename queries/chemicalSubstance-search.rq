@@ -8,7 +8,7 @@
 
 PREFIX schema: <https://schema.org/>
 
-SELECT ?s ?name
+SELECT DISTINCT ?s ?name
 WHERE {
     VALUES ?Class {<https://schema.org/ChemicalSubstance>
                   <https://bioschemas.org/ChemicalSubstance>
