@@ -1,5 +1,5 @@
 #+ summary: Search by substance name
-#+ description: Search for chemical proteinss containing the supplied string in their name. The default value searches for the string 'JRCNM01005a'.
+#+ description: Search for chemical substances containing the supplied string in their name. The default value searches for the string 'JRCNM01005a'.
 #+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
 #+ defaults:
 #+   - search: "JRCNM01005a"
