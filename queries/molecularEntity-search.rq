@@ -1,5 +1,5 @@
 #+ summary: Search for molecular entities with the given name.
-#+ description: The example searches for the name 'helium' appearing as any part of the name of the MolecularEntity.
+#+ description: Search for molecular entities containing the supplied string in their name. The example searches for the name 'helium' appearing as any part of the name of the MolecularEntity.
 #+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
 #+ defaults:
 #+   - search: "helium"
