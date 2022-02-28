@@ -1,0 +1,24 @@
+#+ summary: Search for molecular entities with the given InChIKey.
+#+ description: The example searches for the InChIKey 'SWQJXJOGLNCZEY-UHFFFAOYSA-N'.
+#+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
+#+ defaults:
+#+   - InChIKey: "SWQJXJOGLNCZEY-UHFFFAOYSA-N"
+#+ tags:
+#+   - MolecularEntity
+
+PREFIX schema: <https://schema.org/>
+
+SELECT DISTINCT ?s ?name
+WHERE {
+    VALUES ?Class {
+      <https://schema.org/MolecularEntity>
+      <https://bioschemas.org/MolecularEntity>
+      <http://schema.org/MolecularEntity>
+      <http://bioschemas.org/MolecularEntity>
+    }
+    GRAPH ?g {
+        ?s a ?Class ;
+          schema:name ?name ;
+          schema:inChIKey ?_InChIKey .
+    }
+}

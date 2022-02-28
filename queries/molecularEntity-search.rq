@@ -1,0 +1,24 @@
+#+ summary: Search for molecular entities with the given name.
+#+ description: Search for molecular entities containing the supplied string in their name. The example searches for the name 'helium' appearing as any part of the name of the MolecularEntity.
+#+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
+#+ defaults:
+#+   - search: "helium"
+#+ tags:
+#+   - MolecularEntity
+
+PREFIX schema: <https://schema.org/>
+
+SELECT DISTINCT ?s ?name
+WHERE {
+    VALUES ?Class {
+      <https://schema.org/MolecularEntity>
+      <https://bioschemas.org/MolecularEntity>
+      <http://schema.org/MolecularEntity>
+      <http://bioschemas.org/MolecularEntity>
+    }
+    GRAPH ?g {
+        ?s a ?Class ;
+          schema:name ?name .
+      FILTER REGEX(?name, ?_search, "i")
+    }
+}

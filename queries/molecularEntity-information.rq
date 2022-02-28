@@ -1,0 +1,63 @@
+#+ summary: Query to retrieve molecular entity data
+#+ description: Retrieve all properties that are mentioned in the MolecularEntity Profile.
+#+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
+#+ defaults:
+#+   - molecularEntity: https://scholia.toolforge.org/chemical/Q560
+#+ tags:
+#+   - MolecularEntity
+
+PREFIX schema: <https://schema.org/>
+PREFIX pav: <http://purl.org/pav/>
+PREFIX void: <http://rdfs.org/ns/void#>
+
+SELECT
+    (GROUP_CONCAT(DISTINCT ?identifier;SEPARATOR=',') AS ?identifiers)
+    (GROUP_CONCAT(DISTINCT ?name;SEPARATOR=',') AS ?names)
+    (GROUP_CONCAT(DISTINCT ?url;SEPARATOR=',') AS ?urls)
+    (GROUP_CONCAT(DISTINCT ?molecularFormula;SEPARATOR=',') AS ?molecularFormulas)
+    (GROUP_CONCAT(DISTINCT ?iupacName;SEPARATOR=',') AS ?iupacNames)
+    (GROUP_CONCAT(DISTINCT ?inChI;SEPARATOR=',') AS ?inChIs)
+    (GROUP_CONCAT(DISTINCT ?inChIKey;SEPARATOR=',') AS ?inChIKeys)
+    (GROUP_CONCAT(DISTINCT ?molecularWeight;SEPARATOR=',') AS ?molecularWeights)
+    (GROUP_CONCAT(DISTINCT ?monoisotopicMolecularWeight;SEPARATOR=',') AS ?monoisotopicMolecularWeights)
+    (GROUP_CONCAT(DISTINCT ?smiles;SEPARATOR=',') AS ?smilesies)
+    (GROUP_CONCAT(DISTINCT ?alternateName;SEPARATOR=',') AS ?altNames)
+    (GROUP_CONCAT(DISTINCT ?associatedDisease;SEPARATOR=',') AS ?diseases)
+    (GROUP_CONCAT(DISTINCT ?bioChemInteraction;SEPARATOR=',') AS ?interactions)
+    (GROUP_CONCAT(DISTINCT ?bioChemSimilarity;SEPARATOR=',') AS ?similities)
+    (GROUP_CONCAT(DISTINCT ?biologicalRole;SEPARATOR=',') AS ?biologicalRoles)
+    (GROUP_CONCAT(DISTINCT ?chemicalRole;SEPARATOR=',') AS ?chemicalRoles)
+    (GROUP_CONCAT(DISTINCT ?description;SEPARATOR=',') AS ?descriptions)
+    (GROUP_CONCAT(DISTINCT ?image;SEPARATOR=',') AS ?images)
+    (GROUP_CONCAT(DISTINCT ?sameAs;SEPARATOR=',') AS ?equivalences)
+WHERE {
+    VALUES ?class {<https://schema.org/MolecularEntity>
+                    <https://bioschemas.org/MolecularEntity>
+                    <http://schema.org/MolecularEntity>
+                    <http://bioschemas.org/MolecularEntity>}
+    GRAPH ?g {
+# Bioschemas Minimal Properties
+        ?_molecularEntity_iri a ?class .
+        OPTIONAL {?_molecularEntity_iri schema:identifier ?identifier }
+        OPTIONAL {?_molecularEntity_iri schema:name ?name }
+        OPTIONAL {?_molecularEntity_iri schema:url ?url}
+## Bioschemas Recommended properties
+        OPTIONAL {?_molecularEntity_iri schema:inChI ?inChI}
+        OPTIONAL {?_molecularEntity_iri schema:inChIKey ?inChIKey}
+        OPTIONAL {?_molecularEntity_iri schema:iupacName ?iupacName}
+        OPTIONAL {?_molecularEntity_iri schema:molecularFormula ?molecularFormula}
+        OPTIONAL {?_molecularEntity_iri schema:molecularWeight ?molecularWeight}
+        OPTIONAL {?_molecularEntity_iri schema:smiles ?smiles}
+## Bioschemas Optional properties
+        OPTIONAL {?_molecularEntity_iri schema:alternateName ?alternateName}
+        OPTIONAL {?_molecularEntity_iri schema:associatedDisease ?associatedDisease}
+        OPTIONAL {?_molecularEntity_iri schema:bioChemInteraction ?bioChemInteraction}
+        OPTIONAL {?_molecularEntity_iri schema:bioChemSimilarity ?bioChemSimilarity}
+        OPTIONAL {?_molecularEntity_iri schema:biologicalRole ?biologicalRole}
+        OPTIONAL {?_molecularEntity_iri schema:chemicalRole ?chemicalRole}
+        OPTIONAL {?_molecularEntity_iri schema:description ?description}
+        OPTIONAL {?_molecularEntity_iri schema:image ?image}
+        OPTIONAL {?_molecularEntity_iri schema:monoisotopicMolecularWeight ?monoisotopicMolecularWeight}
+        OPTIONAL {?_molecularEntity_iri schema:sameAs ?sameAs }
+    }
+}

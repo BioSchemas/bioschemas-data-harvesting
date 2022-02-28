@@ -1,0 +1,18 @@
+#+ summary: Count the number of chemical substances
+#+ description: Count the number of instances that are typed as either a schema:ChemicalSubstance or Bioschemas:ChemicalSubstance
+#+ endpoint: https://swel.macs.hw.ac.uk/data/repositories/bioschemas
+#+ tags:
+#+   - ChemicalSubstance
+
+SELECT ?Class (COUNT(DISTINCT ?s) AS ?instances) WHERE {
+    VALUES ?Class {<https://schema.org/ChemicalSubstance>
+                  <https://bioschemas.org/ChemicalSubstance>
+        			    <http://schema.org/ChemicalSubstance>
+                  <http://bioschemas.org/ChemicalSubstance>
+                    }
+    GRAPH ?g {
+        ?s a ?Class
+    }
+}
+GROUP BY ?Class
+ORDER BY DESC(?instances)
