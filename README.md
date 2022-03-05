@@ -17,7 +17,9 @@ We have loaded the harvested data into a GraphDB triplestore:
 - [Data directory](https://swel.macs.hw.ac.uk/bioschemas-data/)
 - Executable query notebook [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/BioSchemas/bioschemas-data-harvesting/HEAD?labpath=AnalysisQueries.ipynb)
 
-Notes about datasets included in the collection:
+### Notes about datasets included in the collection.
+
+#### Data Harvested with BMUSE
 1. DisProt: 2,044 pages harvested using the dynamic scraper (v0.4.0) on 20 October 2021
 1. MobiDB: 2,083 pages harvested using the dynamic scraper (v0.4.0) on 27 October 2021
 1. Paired Omics: 78 pages harvested using the dynamic scraper (v0.5.0) on 28 October 2021
@@ -48,3 +50,11 @@ Notes about datasets included in the collection:
 6. MetaNetX: statically scraped (v0.5.2) on 11 November 2021
     - https://www.metanetx.org/sitemap_main.xml 12 pages
     - https://www.metanetx.org/sitemap_chem1.xml 49,001 pages
+
+#### Data Feeds and Associated Named Graph
+We have started testing loading data dumps made available as the experimental [Schema.org data feed](https://schema.org/docs/feeds.html). The following table details the feeds that have been loaded. The raw data is available [here](https://swel.macs.hw.ac.uk/bioschemas-data/DataFeeds/).
+
+| Data Source   | Date Generated | Date Loaded | Named Graph |
+| ------------- |----------------|-------------|-------------|
+| bio.tools     | 2021-11-09     | 2021-12-17  | http://bio.tools/comp-tools-0.6-draft/ |
+| chembl-28     | 2022-01-15     | 2022-03-04  | https://www.ebi.ac.uk/chembl-28/ |
