@@ -58,3 +58,21 @@ We have started testing loading data dumps made available as the experimental [S
 | ------------- |----------------|-------------|-------------|
 | bio.tools     | 2021-11-09     | 2021-12-17  | http://bio.tools/comp-tools-0.6-draft/ |
 | chembl-28     | 2022-01-15     | 2022-03-04  | https://www.ebi.ac.uk/chembl-28/ |
+
+The following triples were hand inserted to track the provenance of the data feeds. Note that the location retrieved from `pav:retrievedFrom` refers to the domain of the data and the date `pav:retrievedOn` is the date the date was generated. This is to be consistent with the data coming from BMUSE.
+
+```SPARQL
+# Bio.Tools
+INSERT DATA {
+<http://bio.tools/comp-tools-0.6-draft/> <http://purl.org/pav/retrievedFrom> <https://bio.tools> .
+<http://bio.tools/comp-tools-0.6-draft/> <http://purl.org/pav/retrievededOn> "2021-11-09T09:28:45"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://bio.tools/comp-tools-0.6-draft/> a <https://schema.org/DataFeed> .
+}
+
+# ChEMBL 28
+INSERT DATA {
+<https://www.ebi.ac.uk/chembl-28/> <http://purl.org/pav/retrievedFrom> <https://www.ebi.ac.uk/chembl/> .
+<https://www.ebi.ac.uk/chembl-28/> <http://purl.org/pav/retrievededOn> "2022-01-15T09:28:45"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://www.ebi.ac.uk/chembl-28/> a <https://schema.org/DataFeed> .
+}
+```
