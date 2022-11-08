@@ -1,0 +1,70 @@
+import os
+import sys
+from snakemake.utils import *
+from datetime import date
+from rdflib import ConjunctiveGraph
+from rdflib import URIRef, BNode, Literal
+from rdflib.namespace import FOAF, RDF, RDFS, PROV
+
+today = date.today()
+
+source = "BioHackathon2022"
+# Month abbreviation, day and year	
+date = today.strftime("%b-%d-%Y")
+
+rule all:
+	#input: "persons.ttl", "workflows.ttl"
+    input: "out.ttl"
+
+rule extract_persons:
+    input:
+        "wf_hub_crawl.ttl"
+    output:
+        "persons.ttl"
+    run:
+        for f in input:
+            print(f)
+            kg = ConjunctiveGraph()
+            kg.parse(f)
+            print(f"{len(kg)}")
+            q = """
+                CONSTRUCT {?s ?p ?o} WHERE {?s rdf:type <http://schema.org/Person> . ?s ?p ?o .}
+            """
+            sub_kg = kg.query(q)
+            sub_kg.serialize(output[0], format="turtle", base="http://test/")
+            print(f"{len(sub_kg)}")
+
+rule extract_workflow:
+    input:
+        "wf_hub_crawl.ttl"
+    output:
+        "workflows.ttl"
+    run:
+        for f in input:
+            print(f)
+            kg = ConjunctiveGraph()
+            kg.parse(f)
+            print(f"{len(kg)}")
+            q = """
+                CONSTRUCT {?s ?p ?o} WHERE {?s rdf:type <http://schema.org/ComputerLanguage> . ?s ?p ?o .}
+            """
+            sub_kg = kg.query(q)
+            sub_kg.serialize(output[0], format="turtle", base="http://test/")
+            print(f"{len(sub_kg)}")
+
+rule merge:
+    input:
+        "workflows.ttl", 
+        "persons.ttl"
+    output:
+        "out.ttl"
+    run:
+        kg = ConjunctiveGraph()
+        for f in input:
+            kg.parse(f)
+            print(f"{len(kg)}")
+
+        processing = BNode()
+        kg.add((processing, RDF.type, PROV.Activity))
+        kg.add((processing, RDFS.comment, Literal(str(source + " " + date))))
+        kg.serialize(output[0], format="turtle", base="http://test/")
